@@ -88,6 +88,24 @@ var intChan2 <- chan int
 
 
 
+### 常用utils函数
+
+#### 驼峰命名转换为下划线命名
+
+```
+
+func camelToSnake(name string) string {
+	var matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
+	var matchAllCap = regexp.MustCompile("([a-z0-9])([A-Z])")
+
+	snake := matchFirstCap.ReplaceAllString(name, "${1}_${2}")
+	snake = matchAllCap.ReplaceAllString(snake, "${1}_${2}")
+	return strings.ToLower(snake)
+}
+```
+
+
+
 ### 创建项目
 
 ```
